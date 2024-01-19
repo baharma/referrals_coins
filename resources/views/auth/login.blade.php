@@ -7,6 +7,7 @@
     <div class="left-side"></div>
 
     <div class="right-side">
+        <h1>Login</h1>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="mb-3">

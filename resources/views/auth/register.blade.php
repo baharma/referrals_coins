@@ -9,7 +9,7 @@
 
     <div class=""  style="padding: 40px" >
         <h1>Register</h1>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>
@@ -33,9 +33,9 @@
                 name="password_confirmation" required autocomplete="new-password">
               </div>
 
-              <button type="submit" class="btn btn-primary">Submit</button>
-              <br><a href="{{ route('register') }}" class="">
-                Register ?
+              <button type="submit" class="btn btn-primary">Register</button>
+              <br><a href="{{ route('login') }}" class="">
+                Already Have Account ?
             </a>
         </form>
     </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ReverealsCoint;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -13,6 +14,9 @@ class HomeController extends Controller
     }
 
     public function index(){
-        return view('layouts.apps');
+        $reveral = ReverealsCoint::all();
+        return view('pages.home',compact('reveral'));
     }
+
+
 }

@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class LevelReverals extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'level',
+        'percent',
+    ];
 }

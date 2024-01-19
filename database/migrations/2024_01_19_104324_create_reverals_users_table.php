@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('revereals_coints', function (Blueprint $table) {
+        Schema::create('reverals_users', function (Blueprint $table) {
             $table->id();
-            $table->double('price');
-            $table->string('plans');
-            $table->text('description');
+            $table->foreignId('user')->references('id')->on('users');
+            $table->foreignId('reveral_id')->references('id')->on('revereals_coints');
+            $table->string('token');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revereals_coints');
+        Schema::dropIfExists('reverals_users');
     }
 };

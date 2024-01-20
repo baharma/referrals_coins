@@ -14,4 +14,11 @@ class ReveralsUser extends Model
         'reveral_id',
         'token'
     ];
+
+    public function User(){
+        return $this->hasOne(User::class,'id','user');
+    }
+    public function reveral(){
+        return $this->hasOne(ReverealsCoint::class,'id','reveral_id');
+    }
 }

@@ -61,6 +61,11 @@ class PlanReferall extends Component
                 $presenta = 0;
             }
             $bonus = $data->price * ($presenta / 100);
+            $myWallet = MyWallet::where('user',$reveralUserCode->user)->first();
+            $dataMyWallet = $myWallet->wallet + $bonus;
+            $myWallet->update([
+                'wallet'=>$dataMyWallet
+            ]);
             $bonusWallet = $wallet->wallet + $bonus;
             $wallet->update([
                 'wallet'=>$bonusWallet

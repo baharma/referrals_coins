@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('level_reverals', function (Blueprint $table) {
             $table->id();
             $table->string('level');
+            $table->foreignId('reverals_code')->references('id')->on('reverals_users');
             $table->integer('percent');
             $table->timestamps();
         });

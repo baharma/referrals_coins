@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->double('price');
             $table->string('plans');
+            $table->string('level');
             $table->text('description');
             $table->timestamps();
         });

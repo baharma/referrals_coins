@@ -11,6 +11,8 @@ class ReverealsCoint extends Model
 
     protected $fillable = [
         'plans',
-        'description'
+        'description',
+        'price',
+        'level'
     ];
 }

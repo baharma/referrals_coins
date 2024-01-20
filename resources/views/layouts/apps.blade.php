@@ -22,6 +22,8 @@
 
     @include('pages.layout-pages.navbar')
 
+    @include('pages.layout-pages.hero')
+
     @yield('content')
 
     @include('pages.layout-pages.footer')

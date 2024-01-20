@@ -20,7 +20,7 @@
                             @csrf
                             <button type="submit" class="nav-link scrollto p-3">Logout</button>
                         </form></li>
-                          <li><a href="#">My Refferals</a></li>
+                          <li><a href="{{route('myReverall')}}">My Refferals</a></li>
                       </ul>
                   </li>
                   @else

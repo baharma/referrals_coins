@@ -24,6 +24,7 @@ use App\Http\Controllers\HomeController;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 Route::controller(HomeController::class)->group(function (){
     route::get('/','index')->name('home');
+    Route::get('/reverall','myReverall')->name('myReverall');
 });
 
 Route::middleware('auth')->group(function () {

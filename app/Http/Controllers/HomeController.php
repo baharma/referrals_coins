@@ -18,5 +18,8 @@ class HomeController extends Controller
         return view('pages.home',compact('reveral'));
     }
 
+    public function myReverall(){
+        return view('pages.myreferal');
+    }
 
 }

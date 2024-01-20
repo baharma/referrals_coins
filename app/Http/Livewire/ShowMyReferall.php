@@ -21,5 +21,6 @@ class ShowMyReferall extends Component
     {
         $this->reverall = ReveralsUser::where('user', Auth::user()->id)->get();
         $this->myWallet = MyWallet::where('user', Auth::user()->id)->first();
+
     }
 }

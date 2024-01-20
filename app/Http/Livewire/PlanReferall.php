@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\MyWallet;
 use App\Models\ReveralsUser;
 use App\Models\ReverealsCoint;
+use App\Models\UseReverallCode;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Illuminate\Support\Str;
@@ -82,9 +83,13 @@ class PlanReferall extends Component
             'reveral_id'=> $data->id,
             'token'=> Str::random(6) . '_' . now()->timestamp
         ];
-        // dd($reveralData);
-        ReveralsUser::create($reveralData);
 
+
+        ReveralsUser::create($reveralData);
+        UseReverallCode::create([
+            'user'=>Auth::user()->id,
+            'reveral_id'=>$reveralUserCode->id
+        ]);
         $this->emit('dataDone');
     }
 }

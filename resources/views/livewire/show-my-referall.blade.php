@@ -16,9 +16,11 @@
                             @foreach ($reverall as $index => $item)
                             <li>
                                 <a data-bs-toggle="collapse" class="collapse"
-                                    data-bs-target="#accordion-list-{{ $index }}"><span>{{ $index }}</span>{{$item->reveral->plans}}<i class="bx bx-chevron-down icon-show"></i><i
+                                    data-bs-target="#accordion-list-{{ $index }}"><span>{{ $index+1 }}</span>{{$item->reveral->plans}}<i
+                                        class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
-                                <div id="accordion-list-{{ $index }}" class="collapse " data-bs-parent=".accordion-list">
+                                <div id="accordion-list-{{ $index }}" class="collapse "
+                                    data-bs-parent=".accordion-list">
                                     <h4>
                                         $ {{$item->reveral->price}}
                                     </h4>
@@ -26,9 +28,28 @@
                                         {{$item->reveral->description}}
                                     </p>
                                     <p>
-                                       Your Token : {{$item->token}}
+                                        Your Token : {{$item->token}}
                                     </p>
+                                    <hr><br>
+                                    <h5>Anyone Who Uses It Your Code</h5>
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Name</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($item->reveralUse as $index => $items)
+                                            <tr>
+                                                <th scope="row">{{$index + 1}}</th>
+                                                <td>{{$items->getUser->name}}</td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
+
                             </li>
                             @endforeach
                         </ul>

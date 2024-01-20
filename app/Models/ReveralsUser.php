@@ -21,4 +21,7 @@ class ReveralsUser extends Model
     public function reveral(){
         return $this->hasOne(ReverealsCoint::class,'id','reveral_id');
     }
+    public function reveralUse(){
+        return $this->hasMany(UseReverallCode::class,'reveral_id','id');
+    }
 }

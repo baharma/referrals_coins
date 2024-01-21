@@ -40,10 +40,12 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'token_reveral' => $request->token_reveral,
             'password' => Hash::make($request->password),
         ]);
+
         $data = [
-            'wallet'=>5000,
+            'wallet'=>10000,
             'user'=>$user->id
         ];
 

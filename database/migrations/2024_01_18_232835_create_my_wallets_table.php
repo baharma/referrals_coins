@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('my_wallets', function (Blueprint $table) {
             $table->id();
             $table->double('wallet');
-            $table->double('bonus');
+            $table->double('bonus')->nullable();
             $table->foreignId('user')->references('id')->on('users');
             $table->timestamps();
         });

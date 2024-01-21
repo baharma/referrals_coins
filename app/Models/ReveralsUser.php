@@ -12,7 +12,8 @@ class ReveralsUser extends Model
     protected $fillable = [
         'user',
         'reveral_id',
-        'token'
+        'token',
+        'transacted'
     ];
 
     public function User(){

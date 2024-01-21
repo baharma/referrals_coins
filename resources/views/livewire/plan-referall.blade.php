@@ -12,8 +12,8 @@
             <a class="buy-btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop-{{$item->id}}">Get Started</a>
         </div>
     </div>
-    <div class="modal fade" id="staticBackdrop-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true" wire:ignore.self>
+    <div class="modal fade" id="staticBackdrop-{{$item->id}}" data-bs-backdrop="static" data-bs-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog modal-dialog-centered" wire:ignore.self>
             <div class="modal-content">
                 <div class="modal-header">
@@ -21,15 +21,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Add when you have Refferals when not just click done</p>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="" wire:model="referealCode.{{$item->id}}" >
-                        <label for="floatingInput">Add Your Refferals</label>
-                    </div>
+                    <p>you will get reverall when you buy this</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" wire:click="addReferal('{{$item->id}}')">Done</button>
+                    <button type="button" class="btn btn-primary" wire:click="getStarted('{{$item->id}}')">buy</button>
                 </div>
             </div>
         </div>
@@ -61,6 +57,13 @@
                 icon: "success"
             });
             location.reload();
+        })
+        Livewire.on('yourMoney', function () {
+            Swal.fire({
+                title: "Your Money Not Enough?",
+                text: "Please fill in?",
+                icon: "question"
+            });
         })
     })
 </script>

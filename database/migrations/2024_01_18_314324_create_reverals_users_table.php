@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user')->references('id')->on('users');
             $table->foreignId('reveral_id')->references('id')->on('revereals_coints');
+            $table->timestamp('date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->double('transacted');
             $table->string('token');
             $table->timestamps();
         });

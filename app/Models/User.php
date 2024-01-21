@@ -21,6 +21,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
+        'token_reveral',
+        'self_reveral',
     ];
 
     /**
@@ -42,4 +45,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function wallet(){
+        return $this->this->hasOne(MyWallet::class,'id','user');
+    }
 }

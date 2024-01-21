@@ -33,6 +33,11 @@
                 name="password_confirmation" required autocomplete="new-password">
               </div>
 
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Reverall Code</label>
+                <input  class="form-control" type="text" name="token_reveral" >
+              </div>
+
               <button type="submit" class="btn btn-primary">Register</button>
               <br><a href="{{ route('login') }}" class="">
                 Already Have Account ?

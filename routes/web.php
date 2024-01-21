@@ -35,7 +35,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::controller(DasboardController::class)->group(function(){
-
+        Route::get('/{reverarll}','registerWithCode')->name('reverall-register');
     });
 });
 

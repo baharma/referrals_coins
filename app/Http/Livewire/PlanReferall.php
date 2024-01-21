@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\MyWallet;
 use App\Models\User;
+use App\Models\LevelReverals;
 use App\Models\ReveralsUser;
 use App\Models\ReverealsCoint;
 use App\Models\UseReverallCode;
@@ -86,13 +87,26 @@ class PlanReferall extends Component
                 }
 
                 $bonus = $data->price * ($presenta / 100);
+
                 $bonusWallet = $wallet->wallet + $bonus;
 
                 // Assuming you have a 'wallet' relationship defined in the User model
-                $bonusReverall->wallet()->update([
-                    'wallet' => $bonusWallet
+                $mywallet = MyWallet::where('user',$bonusReverall->id)->first();
+                $mybonus = $mywallet->wallet + $bonus;
+                $mywallet->update([
+                    'wallet'=>$mybonus
                 ]);
-                $bonusForYou = $countWallet + $bonusWallet;
+                LevelReverals::create([
+                    'level'=>$bonusReverall->level,
+                    'user'=>$bonusReverall->id,
+                    'bonus_log'=>$bonus,
+                    'percent'=>$presenta,
+                    'name_use'=>Auth::user()->id,
+                    'date'=>now()
+
+                ]);
+                $bonusForYou = $countWallet + $bonus;
+
                 $wallet->update([
                     'wallet'=>$bonusForYou
                 ]);
@@ -103,7 +117,8 @@ class PlanReferall extends Component
 
         $users->update([
             'date'=>now(),
-            'self_reveral'=>Str::random(6) . '_' . now()->timestamp
+            'self_reveral'=>Str::random(6) . '_' . now()->timestamp,
+            'level'=>$data->level
         ]);
 
         $this->emit('dataDone');

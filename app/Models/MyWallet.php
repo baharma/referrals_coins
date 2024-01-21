@@ -11,6 +11,7 @@ class MyWallet extends Model
     protected $table = 'my_wallets';
     protected $fillable = [
         'wallet',
-        'user'
+        'user',
+        'bonus'
     ];
 }

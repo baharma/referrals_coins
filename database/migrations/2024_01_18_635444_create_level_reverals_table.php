@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('level_reverals', function (Blueprint $table) {
             $table->id();
             $table->string('level');
-            $table->foreignId('reverals_code')->references('id')->on('reverals_users');
+            $table->foreignId('user')->references('id')->on('users');
+            $table->double('bonus_log');
             $table->integer('percent');
+            $table->foreignId('name_use')->references('id')->on('users');
+            $table->timestamp('date');
             $table->timestamps();
         });
     }

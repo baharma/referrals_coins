@@ -10,44 +10,30 @@
                     <div class="content">
                         <h3>My Wallet <br><strong><sup>$</sup>{{ $myWallet->wallet }}</strong></h3>
                     </div>
-
+                    <h5 class="content">Youre Refferal Code : {{ Auth::user()->self_reveral }} </h5>
                     <div class="accordion-list">
                         <ul>
-                            @foreach ($reverall as $index => $item)
+                            @foreach ($levelReferalls as $index => $item)
                             <li>
                                 <a data-bs-toggle="collapse" class="collapse"
-                                    data-bs-target="#accordion-list-{{ $index }}"><span>{{ $index+1 }}</span>{{$item->reveral->plans}}<i
+                                    data-bs-target="#accordion-list-{{ $index }}"><span>{{ $index+1 }}</span>{{$item->userUse->name}}<i
                                         class="bx bx-chevron-down icon-show"></i><i
                                         class="bx bx-chevron-up icon-close"></i></a>
                                 <div id="accordion-list-{{ $index }}" class="collapse "
                                     data-bs-parent=".accordion-list">
+                                    Your Bonus Referall code :
                                     <h4>
-                                        $ {{$item->reveral->price}}
+                                        $ {{$item->bonus_log}}
                                     </h4>
                                     <p>
-                                        {{$item->reveral->description}}
+                                        Presentage :
+                                        {{$item->percent}}% Bonus Refellar code
                                     </p>
                                     <p>
-                                        Your Token : {{$item->token}}
+                                       Date :  {{$item->date}}
                                     </p>
-                                    <hr><br>
-                                    <h5>Anyone Who Uses It Your Code</h5>
-                                    <table class="table table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">#</th>
-                                                <th scope="col">Name</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($item->reveralUse as $index => $items)
-                                            <tr>
-                                                <th scope="row">{{$index + 1}}</th>
-                                                <td>{{$items->getUser->name}}</td>
-                                            </tr>
-                                        @endforeach
-                                        </tbody>
-                                    </table>
+
+
                                 </div>
 
                             </li>
@@ -59,7 +45,11 @@
 
                 <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
                     style='background-image: url("{{asset('Arsha/assets/img/why-us.png')}}");' data-aos="zoom-in"
-                    data-aos-delay="150">&nbsp;</div>
+                    data-aos-delay="150">&nbsp;
+
+
+                </div>
+
             </div>
 
         </div>

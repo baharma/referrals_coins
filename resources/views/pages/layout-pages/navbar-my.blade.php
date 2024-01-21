@@ -11,8 +11,7 @@
           <li><a class="nav-link scrollto " href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link   scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+
           @if (Auth::check())
           <li class="dropdown"><a href="#"><span>{{Auth::user()->name}}</span> <i class="bi bi-chevron-down"></i></a>
               <ul>
@@ -20,7 +19,7 @@
                     @csrf
                     <button type="submit" class="nav-link scrollto p-3">Logout</button>
                 </form></li>
-                  <li><a href="{{route('myReverall')}}">My Refferals</a></li>
+                  <li><a href="{{route('myReverall')}}">Dasboard</a></li>
               </ul>
           </li>
           @else

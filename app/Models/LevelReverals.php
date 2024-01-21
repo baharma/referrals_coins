@@ -11,6 +11,18 @@ class LevelReverals extends Model
 
     protected $fillable = [
         'level',
+        'user',
+        'name_use',
+        'bonus_log',
         'percent',
+        'date'
     ];
+
+
+    public function users(){
+        return $this->hasOne(User::class,'id','user');
+    }
+    public function userUse(){
+        return $this->hasOne(User::class,'id','name_use');
+    }
 }
